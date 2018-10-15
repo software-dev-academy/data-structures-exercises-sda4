@@ -1,14 +1,4 @@
-package exercise;
-
-class Node {
-	int elem;
-	Node next;
-	
-	Node(int i, Node n) {
-		elem = i;
-		next = n;
-	}
-}
+package exercise.linkedlist;
 
 public class LinkedList {
 
@@ -24,7 +14,7 @@ public class LinkedList {
 	 *
 	 * @param i the integer to add
 	 */
-	void add(int i) {
+	public void add(int i) {
 		Node newNode = new Node(i, null);
 		
 		if (first == null) { // list is empty
@@ -52,7 +42,7 @@ public class LinkedList {
 	 * @return element at index
 	 * @throws {@link IndexOutOfBoundsException} if index is negative
 	 */
-	int get(int index) {
+	public int get(int index) {
 		if (index < 0) {
 			throw new IndexOutOfBoundsException();
 		}
@@ -73,7 +63,7 @@ public class LinkedList {
 		}
 	}
 	
-	void printAll() {
+	public void printAll() {
 		if (first == null) { // list is empty
 			System.out.print("<empty>");
 		} else {
