@@ -4,8 +4,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Executable;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -31,10 +29,30 @@ class LinkedListTest {
     }
 
     @Test
-    void add() {
+    void addToEmptyLinkedList() {
         Node expectedNode = new Node(303, null);
         linkedList.add(expectedNode);
         assertEquals(expectedNode, linkedList.get(0));
+    }
+
+    @Test
+    void addToNonEmptyLinkedList() {
+        Node someNode = new Node(101, null);
+        linkedList.add(someNode);
+        Node expectedNode = new Node(303, null);
+        linkedList.add(expectedNode);
+        assertEquals(expectedNode, linkedList.get(1));
+    }
+
+    @Test
+    void addToNonEmptyLinkedListWithMoreThanOneNode() {
+        Node firstNode = new Node(909, null);
+        linkedList.add(firstNode);
+        Node someNode = new Node(101, null);
+        linkedList.add(someNode);
+        Node expectedNode = new Node(303, null);
+        linkedList.add(expectedNode);
+        assertEquals(expectedNode, linkedList.get(2));
     }
 
     @Test
@@ -52,9 +70,16 @@ class LinkedListTest {
     }
 
     @Test
-    void outOfBoundException() {
+    void positiveIndexOutOfBoundException() {
         Node newNode = new Node(303, null);
         linkedList.add(newNode);
         assertThrows(IndexOutOfBoundsException.class, () -> linkedList.getValue(1));
+    }
+
+    @Test
+    void negativeIndexOutOfBoundException() {
+        Node newNode = new Node(303, null);
+        linkedList.add(newNode);
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.getValue(-1));
     }
 }
