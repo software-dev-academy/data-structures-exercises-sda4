@@ -19,6 +19,11 @@ public class LinkedList {
 		first = null;
 	}
 	
+	/**
+	 * Adds an integer to the end of this list.
+	 *
+	 * @param i the integer to add
+	 */
 	void add(int i) {
 		Node newNode = new Node(i, null);
 		
