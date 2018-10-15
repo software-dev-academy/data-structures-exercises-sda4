@@ -4,7 +4,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Executable;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class LinkedListTest {
 
@@ -38,7 +41,7 @@ class LinkedListTest {
     void getValue() {
         int expected = 202;
         linkedList.addValue(expected);
-        assertEquals(expected,linkedList.getValue(0));
+        assertEquals(expected, linkedList.getValue(0));
     }
 
     @Test
@@ -46,5 +49,12 @@ class LinkedListTest {
         Node expectedNode = new Node(303, null);
         linkedList.add(expectedNode);
         assertEquals(expectedNode, linkedList.get(0));
+    }
+
+    @Test
+    void outOfBoundException() {
+        Node newNode = new Node(303, null);
+        linkedList.add(newNode);
+        assertThrows(IndexOutOfBoundsException.class, () -> linkedList.getValue(1));
     }
 }
