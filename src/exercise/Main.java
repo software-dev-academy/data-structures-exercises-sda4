@@ -15,6 +15,7 @@ public class Main {
 		int res2 = l.get(1);
 		System.out.println("res2: " + res2);
 		
+		l.printAll();
 	}
 
 }

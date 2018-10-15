@@ -73,5 +73,22 @@ public class LinkedList {
 		}
 	}
 	
-	
+	void printAll() {
+		if (first == null) { // list is empty
+			System.out.print("<empty>");
+		} else {
+			// we know that first is not null!
+			System.out.print("[");
+		
+			Node current = first;
+			while (current.next != null) {
+				System.out.print(current.elem + ",");
+				current = current.next;
+			}
+			// print last element
+			System.out.print(current.elem);
+		
+			System.out.print("]");
+		}
+	}
 }
