@@ -12,26 +12,35 @@ public class LinkedList {
 	/**
 	 * Adds an integer to the end of this list.
 	 *
-	 * @param i the integer to add
+	 * @param i the integer to addValue
 	 */
-	public void add(int i) {
+	public void addValue(int i) {
 		Node newNode = new Node(i, null);
-		
+		add(newNode);
+	}
+
+	/**
+	 * Add a node to the list
+	 *
+	 * @param node Node to be added
+	 */
+	public void add(Node node) {
+
 		if (first == null) { // list is empty
-			first = newNode;
+			first = node;
 		} else { // list is not empty
 			// 1. step find the last node
 			Node current = first;
-			
+
 			while (current.next != null) {
 				// current is not the last node!
 				current = current.next;
 			}
 			// current.next == null
 			// that means that current is the last node! YAY! :-)
-			
+
 			// 2. step insert new node
-			current.next = newNode;			
+			current.next = node;
 		}
 	}
 
