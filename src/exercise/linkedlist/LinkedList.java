@@ -51,26 +51,36 @@ public class LinkedList {
 	 * @return element at index
 	 * @throws {@link IndexOutOfBoundsException} if index is negative
 	 */
-	public int get(int index) {
-		if (index < 0) {
-			throw new IndexOutOfBoundsException();
-		}
-		
-		int i = 0;
-		Node current = first;
-		
-		while (index != i && current.next != null) {
-			i++;
-			current = current.next;
-		}
-		
-		if (index <= i) {
-			// here, we are at the right place!
-			return current.elem;
-		} else {
-			throw new IndexOutOfBoundsException();
-		}
+	public int getValue(int index) {
+		return get(index).elem;
 	}
+
+    /**
+     * Get Node at index
+     * @param index Index of Node
+
+     * @return {@link Node} at the given index
+     */
+    public Node get(int index) {
+        if (index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        int i = 0;
+        Node current = first;
+
+        while (index != i && current.next != null) {
+            i++;
+            current = current.next;
+        }
+
+        if (index <= i) {
+            // here, we are at the right place!
+            return current;
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
 	
 	public void printAll() {
 		if (first == null) { // list is empty

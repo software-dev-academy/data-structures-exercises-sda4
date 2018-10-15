@@ -9,12 +9,12 @@ public class Main {
 		LinkedList l = new LinkedList();
 		l.addValue(5);
 		
-		int res = l.get(0);
+		int res = l.getValue(0);
 		System.out.println("res: " + res);
 		
 		l.addValue(7);
 		
-		int res2 = l.get(1);
+		int res2 = l.getValue(1);
 		System.out.println("res2: " + res2);
 		
 		l.printAll();
