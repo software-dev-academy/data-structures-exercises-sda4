@@ -46,8 +46,10 @@ public class LinkedList {
 	}
 
 	/**
-	 * Return element at given index.
-	 * 
+	 * Returns element at given index.
+	 *
+	 * Complexity: O(n)
+	 *
 	 * @param index
 	 * @return element at index
 	 * @throws {@link IndexOutOfBoundsException} if index is negative
@@ -58,7 +60,7 @@ public class LinkedList {
 		}
 		
 		int i = 0;
-		Node current = first;
+		Node current = this.first;
 		
 		while (index != i && current.next != null) {
 			i++;
@@ -73,6 +75,40 @@ public class LinkedList {
 		}
 	}
 	
+	/**
+	 * Complexity: O(n)
+	 *
+	 * @return the size of the list.
+	 */
+	int size() {
+		if (first == null) { // the list is empty!
+			return 0;
+		}
+		int counter = 1;
+		Node current = first;
+		while (current.next != null) {
+			counter++;
+			current = current.next;
+		}
+		return counter;
+	}
+
+	// Complexity: O(n^2)
+	void printAll2() {
+		System.out.print("[");
+		// only use 'size' and 'get'
+		int counter = 0;
+		while (counter < size()) {
+			int elem = get(counter);
+			System.out.print(elem);
+			if (counter < size() - 1) { // it's *not* the last element
+				System.out.print(",");
+			}
+			counter++;
+		}
+		System.out.print("]");
+	}
+
 	void printAll() {
 		if (first == null) { // list is empty
 			System.out.print("<empty>");

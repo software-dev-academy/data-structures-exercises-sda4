@@ -16,6 +16,11 @@ public class Main {
 		System.out.println("res2: " + res2);
 		
 		l.printAll();
+
+		System.out.println("\nsize: " + l.size());
+
+		System.out.println();
+		l.printAll2();
 	}
 
 }
