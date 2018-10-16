@@ -1,6 +1,35 @@
 package exercise;
 
+class Person {
+	String name;
+	Person(String n) {
+		name = n;
+	}
+}
+
+class Address {
+	String streetName;
+	Address(String s) {
+		streetName = s;
+	}
+}
+
 public class Main {
+
+	public static void hashTableExamples() {
+		
+		HashTable table = new HashTable();
+		
+		Person tom = new Person("Tom");
+		Person jim = new Person("Jim");
+		
+		table.put(tom, new Address("Sveavagen"));
+		table.put(jim, new Address("Lindstedtsvagen"));
+		
+		// it's possible that:
+		// tom.hashCode() == jim.hashCode()
+		
+	}
 
 	public static void main(String[] args) {
 		
