@@ -23,16 +23,22 @@ public class Main {
 		Person tom = new Person("Tom");
 		Person jim = new Person("Jim");
 		
-		table.put(tom, new Address("Sveavagen"));
 		table.put(jim, new Address("Lindstedtsvagen"));
+		table.put(tom, new Address("Sveavagen"));
 		
 		// it's possible that:
 		// tom.hashCode() == jim.hashCode()
 		
+		// test 1
+		Address a = (Address) table.get(tom);
+		System.out.println("a: " + a.streetName);
+
+		table.put(tom, new Address("Nygatan"));
+		Address a2 = (Address) table.get(tom);
+		System.out.println("a2: " + a2.streetName);
 	}
 
-	public static void main(String[] args) {
-		
+	public static void linkedListTests() {
 		LinkedList l = new LinkedList();
 		l.add(5);
 		
@@ -50,6 +56,10 @@ public class Main {
 
 		System.out.println();
 		l.printAll2();
+	}
+
+	public static void main(String[] args) {
+		hashTableExamples();
 	}
 
 }

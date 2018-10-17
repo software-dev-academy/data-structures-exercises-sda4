@@ -17,7 +17,7 @@ class Entry {
  */
 public class HashTable {
 
-	int SIZE = 256; // would not make a difference to use a difference
+	int SIZE = 16; // would not make a difference to use a difference
 
 	Entry[] table = new Entry[SIZE];
 
@@ -30,7 +30,18 @@ public class HashTable {
 			Entry newEntry = new Entry(key, value, null);
 			table[index] = newEntry;
 		} else {
-			// more complicated (to be continued..)
+			// firstEntry != null
+			Entry current = firstEntry;
+			while (current.next != null && current.key != key) {
+				current = current.next;
+			}
+			// two cases: either current is the last entry, or
+			// key in entry matches given key
+			if (current.key == key) {
+				current.value = value;
+			} else {
+				current.next = new Entry(key, value, null);
+			}
 		}
 		
 	}
@@ -42,6 +53,18 @@ public class HashTable {
 	 * @return the value that key maps to.
 	 */
 	Object get(Object key) {
-		return null; // not yet implemented
+		int hashValue = key.hashCode();
+		int index = hashValue % SIZE;
+		Entry current = table[index];
+		while (current.next != null && current.key != key) {
+			current = current.next;
+		}
+		// two cases: either key matches (HURRAY!), or
+		// not found (and we're at the last entry)
+		if (current.key == key) {
+			return current.value;
+		} else {
+			return null;
+		}
 	}
 }
