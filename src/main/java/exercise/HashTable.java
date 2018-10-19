@@ -21,7 +21,7 @@ public class HashTable {
 
 	Entry[] table = new Entry[SIZE];
 
-	void put(Object key, Object value) {
+	public void put(Object key, Object value) {
 		int hashValue = key.hashCode();
 		int index = hashValue % SIZE;
 		Entry firstEntry = table[index];
@@ -52,7 +52,7 @@ public class HashTable {
 	 * @param key
 	 * @return the value that key maps to.
 	 */
-	Object get(Object key) {
+	public Object get(Object key) {
 		int hashValue = key.hashCode();
 		int index = hashValue % SIZE;
 		Entry current = table[index];
